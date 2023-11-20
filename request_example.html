@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <form id="meu_formulario">
+            <input type="text" name="titulo" id="titulo">
+            <input type="number" name="valor" id="valor">
+            <select name="tipo" id="tipo">
+                <option value="entrada">Entrada</option>
+                <option value="saida">Saída</option>
+            </select>
+            <button type="submit">Registrar transação</button>
+        </form>
+    </section>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            let data = {
+                titulo: document.querySelector('#titulo').value,
+                valor: document.querySelector('#valor').value,
+                tipo: document.querySelector('#tipo').value
+            }
+
+            // console.log(data);
+            // console.log(JSON.stringify(data));
+
+            fetch('post.php', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            .then((response) => response.json())
+            .then(data => {
+                console.log(data)
+            })
+
+        } 
+        var form = document.getElementById('meu_formulario')
+        form.addEventListener('submit',(e) => handleSubmit(e))
+    </script>
+</body>
+</html>

@@ -16,7 +16,8 @@ if (mysqli_query($conexao, "CREATE DATABASE IF NOT EXISTS financas_pessoais")) {
     $sqlCreateTable = "CREATE TABLE transacao (
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         titulo VARCHAR(50) NOT NULL,
-        valor VARCHAR(50) NOT NULL
+        valor VARCHAR(50) NOT NULL,
+        tipo varchar(50) NOT NULL
     )";
 
     if ($conection->query($sqlCreateTable) === TRUE) {

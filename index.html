@@ -8,6 +8,8 @@
    <!-- Links -->
   <link rel="stylesheet" href="./css/style.css">
   <script src="./js/script.js" defer></script>
+  <script src="./js/get.js" defer></script>
+  <script src="./js/post.js" defer></script>
   <link rel="icon" href="./img/money-icon-png.webp">
 
   <title>Controle de finanças</title>
@@ -34,24 +36,24 @@
         <span class="total">0.00</span>
       </div>
     </div>
-    <div class="newItem">
+    <form class="newItem">
       <div class="divDesc">
-        <label for="desc">Descrição</label>''
-        <input type="text" id="desc" required/>
+        <label for="desc">Descrição</label>
+        <input type="text" name="titulo" id="desc" required/>
       </div>
       <div class="divAmount">
         <label for="amount">Valor</label>
-        <input type="number" id="amount" required/>
+        <input type="number" name="valor" id="amount" required/>
       </div>
       <div class="divType">
         <label for="type">Tipo</label>
-        <select id="type">
-          <option>Entrada</option>
-          <option>Saída</option>
+        <select name="tipo" id="type">
+          <option value="entrada">Entrada</option>
+          <option value="saida">Saída</option>
         </select>
       </div>
-      <button id="btnNew">Incluir</button>
-    </div>
+      <button type="submit" id="btnNew">Incluir</button>
+    </form>
     <div class="divTable">
       <table>
         <thead>

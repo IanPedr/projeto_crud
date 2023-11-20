@@ -8,6 +8,7 @@
 
         $titulo_v = $data_received->titulo;
         $valor_v = $data_received->valor;
+        $tipo_v = $data_received->tipo;
 
         $servername = "localhost";
         $username = "root";
@@ -25,17 +26,21 @@
 
             // $sqlInsertData = "INSERT INTO transacao (titulo, valor) VALUES
             //     ($titulo_v, $valor_v)";
-            $sqlInsertData = "INSERT INTO transacao (titulo, valor) VALUES (:titulo, :valor)";
+            $sqlInsertData = "INSERT INTO transacao (titulo, valor, tipo) VALUES (:titulo, :valor, :tipo)";
             $stmt = $connection->prepare($sqlInsertData);        
             if ($stmt) {
                 // Bind parameters
                 $stmt->bindParam(':titulo', $titulo_v, PDO::PARAM_STR);
                 $stmt->bindParam(':valor', $valor_v, PDO::PARAM_STR);
+                $stmt->bindParam(':tipo', $tipo_v, PDO::PARAM_STR);
+
+                
 
                 if ($stmt->execute()) {
                     echo json_encode(array(
                         "status_code" => 200,
-                        "detail"=> "Data inserted successfully"
+                        "detail"=> "Data inserted successfully",
+                        "dados"=> $data_received
                     ));
                 } else {
                     echo "Error: " . implode(" - ", $stmt->errorInfo());
