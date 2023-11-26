@@ -54,9 +54,12 @@ function handleSubmit(e) {
             new_td_valor.innerHTML = dados.valor
             let new_td_tipo = document.createElement('td')
             new_td_tipo.innerHTML = dados.tipo
+            let new_td_actions = document.createElement('td')
+            new_td_actions.innerHTML = `<button class="edit"> <img src="./img/pencil-simple.svg"> </button> <button class="delete"> <img src="./img/trash.svg"> </button>`
             new_tr.appendChild(new_td_titulo)
             new_tr.appendChild(new_td_valor)
             new_tr.appendChild(new_td_tipo)
+            new_tr.appendChild(new_td_actions)
             wrapper.appendChild(new_tr);
         
     }})

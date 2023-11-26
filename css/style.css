@@ -130,3 +130,32 @@ i {
   width: 80px;
   text-align: center;
 }
+
+td:nth-child(4) {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+td button {
+  background: transparent;
+  padding: 5px; 
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+td button.edit {
+  border: 1px solid #e8c500;
+  background: #e8c500;
+}
+td button.delete {
+  border: 1px solid #c41b1b;
+  background: #c41b1b;
+}
+
+td button img {
+  width: 20px;
+}
