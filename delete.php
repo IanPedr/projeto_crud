@@ -1,17 +1,32 @@
 <?php
-if(!empty($_GET['id']))
+if(!empty($_GET['title']))
 {
-    include_once('configurar_banco_de_dados.php');
 
-    $id = $_GET['id'];
-    $sqlSelect = "SELECT * FROM financas_pessoais WHERE id= $id";
+    $servername = 'localhost';
+    $username = 'root';
+    $password = '';
+    $database = 'financas_pessoais';
 
-    $result = $conexao->query($sqlSelect);
+    $conection = new mysqli($servername, $username, $password, $database);
+
+    if ($conection->connect_error) {
+        die("Conexão falhou: ".$conection->connect_error);
+    }
+
+    $title = $_GET['title'];
+
+    $sqlSelect = "SELECT * FROM transacao WHERE titulo = '$title'";
+
+    $result = $conection->query($sqlSelect);
 
     if($result->num_rows > 0)
     {
-        $sqlSelect = "DELETE FROM transacao WHERE id = $id";
-        $resultDelete = $conexao->query($sqlDelete);
+        $sqlDelete = "DELETE FROM transacao WHERE titulo = '$title'";
+        $resultDelete = $conection->query($sqlDelete);
     }
 }
-    header('Location: ');
+
+$response = array();
+$response['status'] = 200;
+
+echo json_encode($response);

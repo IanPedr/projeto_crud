@@ -8,6 +8,8 @@
    <!-- Links -->
   <link rel="stylesheet" href="./css/style.css">
   <script src="./js/script.js" defer></script>
+  <script src="./js/delete.js"></script>
+  <script src="./js/put.js"></script>
   <script src="./js/get.js" defer></script>
   <script src="./js/post.js" defer></script>
   <link rel="icon" href="./img/money-icon-png.webp">
@@ -36,24 +38,35 @@
         <span class="total">0.00</span>
       </div>
     </div>
-    <form class="newItem">
-      <div class="divDesc">
-        <label for="desc">Descrição</label>
-        <input type="text" name="titulo" id="desc" required/>
-      </div>
-      <div class="divAmount">
-        <label for="amount">Valor</label>
-        <input type="number" name="valor" id="amount" required/>
-      </div>
-      <div class="divType">
-        <label for="type">Tipo</label>
-        <select name="tipo" id="type">
-          <option value="entrada">Entrada</option>
-          <option value="saida">Saída</option>
-        </select>
-      </div>
-      <button type="submit" id="btnNew">Incluir</button>
-    </form>
+    <div class="form-wrapper">
+       <script>
+         function handleEdit() {
+           const titleInput = document.querySelector('input[name="titulo"]');   
+           const valueInput = document.querySelector('input[name="valor"]');   
+           const typeSelect = document.querySelector('select[name="tipo"]');   
+           fetch(`http://localhost/projeto_crud/put.php?title=${titleInput.value}&value=${valueInput.value}&type=${typeSelect.value}`)
+           console.log('edit')
+        }
+      </script> 
+      <form class="newItem" id="add">
+        <div class="divDesc">
+          <label for="desc">Descrição</label>
+          <input type="text" name="titulo" id="desc" required/>
+        </div>
+        <div class="divAmount">
+          <label for="amount">Valor</label>
+          <input type="number" name="valor" id="amount" required/>
+        </div>
+        <div class="divType">
+          <label for="type">Tipo</label>
+          <select name="tipo" id="type">
+            <option value="entrada">Entrada</option>
+            <option value="saida">Saída</option>
+          </select>
+        </div>
+        <button type="submit" id="btnNew">Incluir</button>
+      </form>
+    </div>
     <div class="divTable">
       <table>
         <thead>

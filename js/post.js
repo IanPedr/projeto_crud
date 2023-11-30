@@ -1,3 +1,5 @@
+
+
 function handleSubmit(e) {
     e.preventDefault();
     let data = {
@@ -55,7 +57,13 @@ function handleSubmit(e) {
             let new_td_tipo = document.createElement('td')
             new_td_tipo.innerHTML = dados.tipo
             let new_td_actions = document.createElement('td')
-            new_td_actions.innerHTML = `<button class="edit"> <img src="./img/pencil-simple.svg"> </button> <button class="delete"> <img src="./img/trash.svg"> </button>`
+            new_td_actions.innerHTML = `
+            <button class="edit" onclick="editState('${dados.titulo}', '${dados.valor}', '${dados.tipo}')">
+                <img src="./img/pencil-simple.svg"> 
+            </button> 
+            <button class="delete" onclick="deletarTransacao('${dados.titulo}')">
+                <img src="./img/trash.svg"> 
+            </button>`
             new_tr.appendChild(new_td_titulo)
             new_tr.appendChild(new_td_valor)
             new_tr.appendChild(new_td_tipo)
@@ -64,5 +72,6 @@ function handleSubmit(e) {
         
     }})
 } 
-var form = document.querySelector('form.newItem')
+var form = document.querySelector('form#add')
+// form.addEventListener('submit',(e) => alert('add'))
 form.addEventListener('submit',(e) => handleSubmit(e))

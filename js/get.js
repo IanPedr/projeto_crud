@@ -1,4 +1,9 @@
+
 let wrapper = document.querySelector('tbody');
+
+function edit() {
+    alert('edit')
+}
 
 const getData = async () => {
     const response = await fetch('http://localhost:80/projeto_crud/get.php')
@@ -24,7 +29,13 @@ const getData = async () => {
             let new_td_tipo = document.createElement('td')
             new_td_tipo.innerHTML = dados[dado].tipo
             let new_td_actions = document.createElement('td')
-            new_td_actions.innerHTML = `<button class="edit"> <img src="./img/pencil-simple.svg"> </button> <button class="delete"> <img src="./img/trash.svg"> </button>`
+            new_td_actions.innerHTML = `
+            <button class="edit" onclick="editState('${dados[dado].titulo}', '${dados[dado].valor}', '${dados[dado].tipo}')">
+                <img src="./img/pencil-simple.svg"> 
+            </button> 
+            <button class="delete" onclick="deletarTransacao('${dados[dado].titulo}')"> 
+                <img src="./img/trash.svg"> 
+            </button>`
             new_tr.appendChild(new_td_titulo)
             new_tr.appendChild(new_td_valor)
             new_tr.appendChild(new_td_tipo)
