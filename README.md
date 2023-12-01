@@ -15,6 +15,7 @@ Permite também realizar alterações como alterar valores, descrição da trans
 Após isso o sistema atualiza automaticamente o total do caixa.
 O sistema é simples e fácil de usar, e permite aos usuários acompanhar seus gastos e receitas de forma organizada com design simples e minimalista.
 
+
 # Tecnologias Utilizadas
 
 - HTML5
