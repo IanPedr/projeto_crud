@@ -2,7 +2,7 @@
 # Controle de Finanças
 Projeto de Controle de Finanças para gerenciar suas entradas e saídas de transações.
 
-#imagem do projeto ![image](https://github.com/IanPedr/projeto_crud/assets/125905398/4d418c9b-639f-4114-942e-95c87c3abfe1)
+![image](https://github.com/IanPedr/projeto_crud/assets/125905398/4d418c9b-639f-4114-942e-95c87c3abfe1)
 
 # Desenvolvedores do Projeto
 Micael Targino, Jhoseffy Victor, Ian Pedro.
